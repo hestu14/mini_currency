@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mini_currency/static/css/main.ed9f4ba0.chunk.css",
+    "main.css": "/mini_currency/static/css/main.78d02cb7.chunk.css",
     "main.js": "/mini_currency/static/js/main.29d03e42.chunk.js",
     "main.js.map": "/mini_currency/static/js/main.29d03e42.chunk.js.map",
     "runtime-main.js": "/mini_currency/static/js/runtime-main.39483165.js",
@@ -9,17 +9,17 @@
     "static/js/2.31f2a744.chunk.js": "/mini_currency/static/js/2.31f2a744.chunk.js",
     "static/js/2.31f2a744.chunk.js.map": "/mini_currency/static/js/2.31f2a744.chunk.js.map",
     "index.html": "/mini_currency/index.html",
-    "precache-manifest.76acb5b3381e67d8e772a093deeb2820.js": "/mini_currency/precache-manifest.76acb5b3381e67d8e772a093deeb2820.js",
+    "precache-manifest.c8615157fcb44b8ff89a8c05d6c8076b.js": "/mini_currency/precache-manifest.c8615157fcb44b8ff89a8c05d6c8076b.js",
     "service-worker.js": "/mini_currency/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/mini_currency/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.ed9f4ba0.chunk.css.map": "/mini_currency/static/css/main.ed9f4ba0.chunk.css.map",
+    "static/css/main.78d02cb7.chunk.css.map": "/mini_currency/static/css/main.78d02cb7.chunk.css.map",
     "static/js/2.31f2a744.chunk.js.LICENSE.txt": "/mini_currency/static/js/2.31f2a744.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39483165.js",
     "static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.31f2a744.chunk.js",
-    "static/css/main.ed9f4ba0.chunk.css",
+    "static/css/main.78d02cb7.chunk.css",
     "static/js/main.29d03e42.chunk.js"
   ]
 }
