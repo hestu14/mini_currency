@@ -1,3 +1,7 @@
+.input-header {
+    margin-top: 100px
+}
+
 .button-convert {
     background-color: lightblue;
     width: 100%;
@@ -7,4 +11,5 @@
 
 .text-convert {
     text-align: center;
+    margin-top: 3px;
 }

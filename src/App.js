@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Col, Row } from 'react-bootstrap';
+import { Form, Container, Col, Row, Jumbotron } from 'react-bootstrap';
 import './App.css';
 import axios from 'axios';
 
@@ -15,7 +15,7 @@ class App extends Component {
       inputMoney: '',
       firstBox: 'usd',
       secondBox: 'idr',
-      thirdBox: ''
+      thirdBox: '0'
     };
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
@@ -56,31 +56,63 @@ class App extends Component {
     this.setState({ secondBox: event.target.value });
   }
 
-  inputMoney(){
-    this.setState({ inputMoney: this.refs.money.value});
-    }
-    
+  inputMoney() {
+    this.setState({ inputMoney: this.refs.money.value });
+  }
 
-  convertMoney () {
+
+  convertMoney() {
     var box1 = this.state.firstBox;
     var box2 = this.state.secondBox;
     var inputMoney = this.state.inputMoney;
-    var result = this.state.thirdBox;
 
-    var money1 = "this.state." + box1;
-    var money2 = "this.state." + box2;
 
-    result = inputMoney / money1 * money2 ;
+    var money1;
+    switch (box1) {
+      case 'usd':
+        money1 = this.state.usd;
+        break;
+      case 'idr':
+        money1 = this.state.idr;
+        break;
+      case 'eur':
+        money1 = this.state.eur;
+        break;
+      case 'jpy':
+        money1 = this.state.jpy;
+        break;
+      case 'sgd':
+        money1 = this.state.sgd;
+    }
 
-    console.log(box1);
-    console.log(typeof(money1));
-    console.log(result)
+    var money2;
+    switch (box2) {
+      case 'usd':
+        money2 = this.state.usd;
+        break;
+      case 'idr':
+        money2 = this.state.idr;
+        break;
+      case 'eur':
+        money2 = this.state.eur;
+        break;
+      case 'jpy':
+        money2 = this.state.jpy;
+        break;
+      case 'sgd':
+        money2 = this.state.sgd;
+    }
+
+    var result;
+    result = new Intl.NumberFormat('de-DE').format(inputMoney / money1 * money2);
+
+    this.setState({ thirdBox: result });
 
   }
 
-  handleClick = () => { 
+  handleClick = () => {
     this.convertMoney()
-   }
+  }
 
 
 
@@ -88,16 +120,25 @@ class App extends Component {
 
     return (
       <div>
-        <Container className="mt-5">
+        <Jumbotron fluid>
+          <Container>
+            <h1>Mini Currency</h1>
+            <p>
+              Build using react, react-bootstrap and axios.
+           </p>
+          </Container>
+        </Jumbotron>
+
+        <Container className="mt-3">
           <Form>
             <Form.Group>
-              <Form.Label>Input Nominal</Form.Label>
-              <Form.Control ref="money" type="text" placeholder="ex: 100" value={this.state.inputMoney} onInput={()=>{this.inputMoney();}}/>
+              <Form.Label>Input</Form.Label>
+              <Form.Control ref="money" type="text" placeholder="ex: 100" value={this.state.inputMoney} onInput={() => { this.inputMoney(); }} />
             </Form.Group>
           </Form>
 
           <Row>
-            <Col>
+            <Col xs={5} lg={4} className="mt-3">
 
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Control as="select" value={this.state.firstBox} onChange={this.handleChange1}>
@@ -112,12 +153,12 @@ class App extends Component {
             </Col>
 
 
-            <Col xs={1}>
-              <div className='text-convert'> to </div>
+            <Col xs={2} lg={1} className="mt-3">
+              <div className='text-convert'> <span> to </span></div>
             </Col>
 
 
-            <Col>
+            <Col xs={5} lg={4} className="mt-3">
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Control as="select" value={this.state.secondBox} onChange={this.handleChange2}>
                   <option value="usd">USD</option>
@@ -129,29 +170,30 @@ class App extends Component {
               </Form.Group>
             </Col>
 
-            <Col>
-              <button type="button" className="button-convert" onClick={this.handleClick}> Convert </button>
+            <Col lg={3} className="mt-3">
+              <button type="button" className="button-convert btn btn-secondary" onClick={this.handleClick}> Convert </button>
             </Col>
           </Row>
 
 
-          <Form>
+          <Form className="mt-3">
             <Form.Group>
               <Form.Label>Result</Form.Label>
-              <Form.Control type="text" disabled value={this.state.thirdBox}/>
+              <Form.Control type="text" readonly value={this.state.thirdBox} />
             </Form.Group>
           </Form>
 
 
-          <div>
+          {/* <div>
             <h4> Rates terhadap USD </h4>
             <h6> EUR : {this.state.eur} </h6>
             <h6> IDR : {this.state.idr} </h6>
             <h6> JPY : {this.state.jpy} </h6>
             <h6> SGD : {this.state.sgd} </h6>
-          </div>
+          </div> */}
 
         </Container>
+
       </div >
     );
   }
