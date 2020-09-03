@@ -179,7 +179,7 @@ class App extends Component {
           <Form className="mt-3">
             <Form.Group>
               <Form.Label>Result</Form.Label>
-              <Form.Control type="text" readonly value={this.state.thirdBox} />
+              <Form.Control type="text" readOnly value={this.state.thirdBox} />
             </Form.Group>
           </Form>
 
@@ -193,6 +193,12 @@ class App extends Component {
           </div> */}
 
         </Container>
+
+        <footer id="sticky-footer" class="py-4 text-white-50">
+          <div className="container text-center">
+            <small>API by : <a target="_blank" rel="noopener noreferrer" href='https://www.frankfurter.app/'>www.frankfurter.app</a></small>
+          </div>
+        </footer>
 
       </div >
     );

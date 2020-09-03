@@ -10,3 +10,14 @@
     text-align: center;
     margin-top: 3px;
 }
+
+#sticky-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #545b62
+  }
+
+#sticky-footer a {
+    color: rgba(255,255,255, 0.5)
+}
