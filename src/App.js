@@ -12,6 +12,7 @@ class App extends Component {
       idr: '',
       jpy: '',
       sgd: '',
+      btc: '',
       inputMoney: '',
       firstBox: 'usd',
       secondBox: 'idr',
@@ -35,7 +36,7 @@ class App extends Component {
       // "processData": false,
       "data": "{}"
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
       this.setState({
         eur: response.data.rates.EUR,
         idr: response.data.rates.IDR,
@@ -46,6 +47,27 @@ class App extends Component {
       .catch(error => {
         console.log(error.response)
       });
+
+    axios.get('https://api.coinbase.com/v2/prices/spot?currency=USD', {
+      "async": true,
+      "crossDomain": true,
+      "method": "GET",
+      // "headers": {
+      //   "content-type": "application/json;charset=utf-8",
+      // },
+      // "processData": false,
+      "data": "{}"
+    }).then((response) => {
+      // console.log(response.data.data.amount);
+      this.setState({
+        btc: 1 / parseInt(response.data.data.amount),
+      })
+    })
+      .catch(error => {
+        console.log(error.response)
+      });
+
+
   }
 
   handleChange1(event) {
@@ -65,6 +87,8 @@ class App extends Component {
     var box1 = this.state.firstBox;
     var box2 = this.state.secondBox;
     var inputMoney = this.state.inputMoney;
+    // console.log(box1);
+    // console.log(box2);
 
 
     var money1;
@@ -83,7 +107,12 @@ class App extends Component {
         break;
       case 'sgd':
         money1 = this.state.sgd;
+        break;
+      case 'btc':
+        money1 = this.state.btc;
     }
+
+    // console.log(money1);
 
     var money2;
     switch (box2) {
@@ -101,7 +130,13 @@ class App extends Component {
         break;
       case 'sgd':
         money2 = this.state.sgd;
+        break;
+      case 'btc':
+        money2 = this.state.btc;
+    
     }
+
+    // console.log(money2);
 
     var result;
     result = new Intl.NumberFormat('de-DE').format(inputMoney / money1 * money2);
@@ -147,6 +182,7 @@ class App extends Component {
                   <option value="idr">IDR</option>
                   <option value="jpy">JPY</option>
                   <option value="sgd">SGD</option>
+                  <option value="btc">Bitcoin</option>
                 </Form.Control>
               </Form.Group>
 
@@ -166,6 +202,7 @@ class App extends Component {
                   <option value="idr" selected="selected">IDR</option>
                   <option value="jpy">JPY</option>
                   <option value="sgd">SGD</option>
+                  <option value="btc">Bitcoin</option>
                 </Form.Control>
               </Form.Group>
             </Col>
@@ -190,13 +227,15 @@ class App extends Component {
             <h6> IDR : {this.state.idr} </h6>
             <h6> JPY : {this.state.jpy} </h6>
             <h6> SGD : {this.state.sgd} </h6>
+            <h6> Bitcoin : {this.state.btc} </h6>
           </div> */}
 
         </Container>
 
+        
         <footer id="sticky-footer" class="py-4 text-white-50">
           <div className="container text-center">
-            <small>API by : <a target="_blank" rel="noopener noreferrer" href='https://www.frankfurter.app/'>www.frankfurter.app</a></small>
+            <small>API by : <a target="_blank" rel="noopener noreferrer" href='https://www.frankfurter.app/'>www.frankfurter.app</a> & <a target="_blank" rel="noopener noreferrer" href='https://www.coinbase.com/'>api.coinbase.com</a> </small>
           </div>
         </footer>
 
