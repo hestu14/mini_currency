@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3ed4d6674ba238af6556507ba02bbc1",
+    "revision": "0090880510f6d50c85c686411f830705",
     "url": "/mini_currency/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mini_currency/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "431f8cf9fd28693cdb1d",
+    "revision": "5144f54a72d8a07c0394",
     "url": "/mini_currency/static/css/main.6a4d9584.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mini_currency/static/js/2.ada69ff0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "431f8cf9fd28693cdb1d",
-    "url": "/mini_currency/static/js/main.64a6a055.chunk.js"
+    "revision": "5144f54a72d8a07c0394",
+    "url": "/mini_currency/static/js/main.dfd3b44f.chunk.js"
   },
   {
     "revision": "243a0d48b3208402af52",
