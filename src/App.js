@@ -138,10 +138,17 @@ class App extends Component {
 
     // console.log(money2);
 
-    var result;
-    result = new Intl.NumberFormat('de-DE').format(inputMoney / money1 * money2);
+    var result = inputMoney / money1 * money2;
+    var resultToFixed = result.toFixed(2);
+    var resultFormat = new Intl.NumberFormat('de-DE').format(resultToFixed);
 
-    this.setState({ thirdBox: result });
+    console.log(typeof(resultFormat));
+
+    if (resultFormat === 'NaN') {
+      this.setState({ thirdBox: 'Input nominal salah' });  
+    } else {
+      this.setState({ thirdBox: resultFormat });
+    }
 
   }
 
@@ -150,9 +157,7 @@ class App extends Component {
   }
 
 
-
   render() {
-
     return (
       <div>
         <Jumbotron fluid>
